@@ -25,6 +25,11 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
       
+    - name: git command
+      uses: srt32/git-actions@v0.0.3
+      with:
+         args: "git fetch --all --unshallow"
+         
     - name: Push to Heroku
       uses: CDNievas/heroku-action@v1.0
       with:
