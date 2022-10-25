@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0D18vo9bLyUGEmgi8FBJXBWXhBOaBK/cmW5gBOvG9j5vj3aBG08KgX2G+R6kyOmpxH+KZzCe99YE4Q3sjn41qg==",
+  "dgSpecHash": "U+Z6WtKoJa8oNZNIoeXtQHb7AvAsHp/Y9lgqjIstTCarM6vD6CPJs5c5bPFDWz1oNUI2ArM1tvKOCLrXmCK45Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ale\\Documents\\Source\\personal\\SinnerBot\\SinnerBot\\SinnerBot.csproj",
+  "projectFilePath": "C:\\Users\\Ale\\Documents\\Source\\personal\\sinner-bot\\SinnerBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ale\\.nuget\\packages\\discord.net.commands\\3.8.1\\discord.net.commands.3.8.1.nupkg.sha512",
     "C:\\Users\\Ale\\.nuget\\packages\\discord.net.core\\3.8.1\\discord.net.core.3.8.1.nupkg.sha512",

@@ -592,11 +592,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ale\\Documents\\Source\\personal\\SinnerBot\\SinnerBot\\SinnerBot.csproj",
+      "projectUniqueName": "C:\\Users\\Ale\\Documents\\Source\\personal\\sinner-bot\\SinnerBot.csproj",
       "projectName": "SinnerBot",
-      "projectPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\SinnerBot\\SinnerBot\\SinnerBot.csproj",
+      "projectPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\sinner-bot\\SinnerBot.csproj",
       "packagesPath": "C:\\Users\\Ale\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\SinnerBot\\SinnerBot\\obj\\",
+      "outputPath": "C:\\Users\\Ale\\Documents\\Source\\personal\\sinner-bot\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ale\\AppData\\Roaming\\NuGet\\NuGet.Config",
