@@ -33,3 +33,12 @@ jobs:
         
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
+      
+    - name: Heroku Docker Container Deploy
+      uses: gonuit/heroku-docker-deploy@v1.3.3
+      with:
+        email: alessio.filippin@gmail.com
+        process_type: worker
+        heroku_api_key: f28bfb4f-065a-42f0-932c-9e2fb85c1e02
+        heroku_app_name: sinnerbot-alef
+        dockerfile_name: dockerfile
