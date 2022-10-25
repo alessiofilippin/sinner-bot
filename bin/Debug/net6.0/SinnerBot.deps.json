@@ -10,8 +10,7 @@
         "dependencies": {
           "Discord.Net.Commands": "3.8.1",
           "Discord.Net.Core": "3.8.1",
-          "Discord.Net.WebSocket": "3.8.1",
-          "Microsoft.CrmSdk.CoreAssemblies": "9.0.2.46"
+          "Discord.Net.WebSocket": "3.8.1"
         },
         "runtime": {
           "SinnerBot.dll": {}
@@ -65,21 +64,6 @@
           }
         }
       },
-      "Microsoft.CrmSdk.CoreAssemblies/9.0.2.46": {
-        "dependencies": {
-          "System.Text.Json": "6.0.2"
-        },
-        "runtime": {
-          "lib/net462/Microsoft.Crm.Sdk.Proxy.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.2.47.11043"
-          },
-          "lib/net462/Microsoft.Xrm.Sdk.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.2.47.11043"
-          }
-        }
-      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -105,24 +89,6 @@
           "lib/netcoreapp3.1/System.Linq.Async.dll": {
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.0.0.1"
-          }
-        }
-      },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
-      "System.Text.Encodings.Web/6.0.0": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        }
-      },
-      "System.Text.Json/6.0.2": {
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0",
-          "System.Text.Encodings.Web": "6.0.0"
-        },
-        "runtime": {
-          "lib/net6.0/System.Text.Json.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.0.222.6406"
           }
         }
       },
@@ -163,13 +129,6 @@
       "path": "discord.net.websocket/3.8.1",
       "hashPath": "discord.net.websocket.3.8.1.nupkg.sha512"
     },
-    "Microsoft.CrmSdk.CoreAssemblies/9.0.2.46": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-DHtinIGTFG/Lcov+OKt9w/RJ3Z0DHsA5B5iKBUsB8v8YC83jPkbHJ+AU4NMgtGA5BmPrL27+cO1DQkCCsyZ/4w==",
-      "path": "microsoft.crmsdk.coreassemblies/9.0.2.46",
-      "hashPath": "microsoft.crmsdk.coreassemblies.9.0.2.46.nupkg.sha512"
-    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
@@ -197,27 +156,6 @@
       "sha512": "sha512-cPtIuuH8TIjVHSi2ewwReWGW1PfChPE0LxPIDlfwVcLuTM9GANFTXiMB7k3aC4sk3f0cQU25LNKzx+jZMxijqw==",
       "path": "system.linq.async/5.0.0",
       "hashPath": "system.linq.async.5.0.0.nupkg.sha512"
-    },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
-      "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
-    },
-    "System.Text.Encodings.Web/6.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Vg8eB5Tawm1IFqj4TVK1czJX89rhFxJo9ELqc/Eiq0eXy13RK00eubyU6TJE6y+GQXjyV5gSfiewDUZjQgSE0w==",
-      "path": "system.text.encodings.web/6.0.0",
-      "hashPath": "system.text.encodings.web.6.0.0.nupkg.sha512"
-    },
-    "System.Text.Json/6.0.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-0nE2gwXLn3PTBOPwORLqwuYvWB+Beomt9ZBX+6LmogMNKUvfD1SoDb/ycB1vBntT94rGaB/SvxEyeLu14H6aEg==",
-      "path": "system.text.json/6.0.2",
-      "hashPath": "system.text.json.6.0.2.nupkg.sha512"
     },
     "System.ValueTuple/4.5.0": {
       "type": "package",

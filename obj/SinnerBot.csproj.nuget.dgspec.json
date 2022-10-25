@@ -51,10 +51,6 @@
             "Discord.Net.WebSocket": {
               "target": "Package",
               "version": "[3.8.1, )"
-            },
-            "Microsoft.CrmSdk.CoreAssemblies": {
-              "target": "Package",
-              "version": "[9.0.2.46, )"
             }
           },
           "imports": [
