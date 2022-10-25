@@ -33,3 +33,12 @@ jobs:
         
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
+      
+    - name: Heroku Docker Container Deploy
+      uses: lucassarcanjo/heroku-deploy@2.1.17
+      with:
+        email: alessio.filippin@gmail.com
+        formation: web
+        api_key: f28bfb4f-065a-42f0-932c-9e2fb85c1e02
+        app_name: sinnerbot-alef
+        #dockerfile_path: 
