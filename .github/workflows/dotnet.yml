@@ -41,4 +41,4 @@ jobs:
         process_type: web
         heroku_api_key: f28bfb4f-065a-42f0-932c-9e2fb85c1e02
         heroku_app_name: sinnerbot-alef
-        #dockerfile_path: 
+        dockerfile_name: dockerfile
