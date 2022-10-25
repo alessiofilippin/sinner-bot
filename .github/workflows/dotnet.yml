@@ -24,3 +24,11 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
+      
+    - name: Heroku Action
+      uses: CDNievas/heroku-action@v1.0
+      with:
+        heroku_api_key: f28bfb4f-065a-42f0-932c-9e2fb85c1e02
+        heroku_email: alessio.filippin@gmail.com
+        heroku_app_name: sinnerbot-alef
+
