@@ -12,7 +12,7 @@ namespace SinnerBot.Controllers
 {
     public static class JsonSerializerController
     {
-        private static string path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "instancesData.json";
+        private static string path = AppDomain.CurrentDomain.BaseDirectory + @"/" + "instancesData.json";
         public static bool WriteDataForServer(InstanceDetails _data)
         {
             CleanFile();
@@ -95,7 +95,7 @@ namespace SinnerBot.Controllers
             {
                DateTime lastWrite = File.GetLastWriteTime(path);
 
-                if(lastWrite > DateTime.Now.AddHours(-2))
+                if(lastWrite < DateTime.Now.AddHours(-2))
                 {
                     File.Delete(path);
                 }

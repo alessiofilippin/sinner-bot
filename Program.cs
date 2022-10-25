@@ -3,6 +3,7 @@ using Discord.Net;
 using Discord.WebSocket;
 using Newtonsoft.Json;
 using SinnerBot.Controllers;
+using System.IO;
 using System.Numerics;
 
 public class Program
@@ -44,7 +45,8 @@ public class Program
     public async Task Client_Ready()
     {
         await Log(new LogMessage(LogSeverity.Debug, "Custom", "Start Init for Slash Commands", null));
-
+        string path = AppDomain.CurrentDomain.BaseDirectory + @"/" + "instancesData.json";
+        await Log(new LogMessage(LogSeverity.Debug, "Custom", path, null));
         // Let's do our global command
         var majorArcanaCommand = new SlashCommandBuilder();
         majorArcanaCommand.WithName("maggiore");
