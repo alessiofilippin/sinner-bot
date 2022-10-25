@@ -35,10 +35,10 @@ jobs:
       run: echo ${{ steps.docker_build.outputs.digest }}
       
     - name: Heroku Docker Container Deploy
-      uses: lucassarcanjo/heroku-deploy@2.1.17
+      uses: jctaveras/heroku-deploy@v3.1.0
       with:
         email: alessio.filippin@gmail.com
-        formation: web
+        process_type: web
         api_key: f28bfb4f-065a-42f0-932c-9e2fb85c1e02
         app_name: sinnerbot-alef
         #dockerfile_path: 
