@@ -23,7 +23,7 @@ jobs:
         tokenPrefix: '#{'
         tokenSuffix: '}#'
       env:
-        CDN: ${{ secrets.DISCORD_BOT_TOKEN }}
+        DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
     
     - name: Set up Docker Buildx
       id: buildx
