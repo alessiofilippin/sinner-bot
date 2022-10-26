@@ -1,5 +1,7 @@
 # SinnerBot
 
+[![Docker Image CI](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml)
+
 ## Copyright
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -71,3 +73,4 @@
 **Eng**: The state of each deck per server is saved into a JSON file which the bot will read and write depending on the command type. This was the cheapest solution for hosting and the JSON file will be destroyed after 2 hours of inactivity to preserve the memory on the host.
 
 **Ita**: Lo stato di ogni deck per server viene salvato in un file JSON che il bot leggerà e scriverà a seconda del tipo di comando. Questa era la soluzione più economica per l'hosting e il file JSON verrà distrutto dopo 2 ore di inattività per preservare la memoria sull'host.
+
