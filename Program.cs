@@ -108,7 +108,7 @@ public class Program
             case "stato-mazzi":
                 await HandledecksReportCommand(command);
                 break;
-            case "help":
+            case "help-me-sinnerbot":
                 await HandleHelpCommand(command);
                 break;
         }
