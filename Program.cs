@@ -19,8 +19,8 @@ public class Program
         _client.Log += Log;
 
         //  You can assign your bot token to a string, and pass that in to connect.
-        //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.
-        var token = "MTAzMzM5NDAxODQ1OTA3NDY1MA.G8fSNv.-Dfp3y-yOz8q1pPoG02Ha8MwCFfPU6atHMzAM0";
+        //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.        
+        var token = "#{DISCORD_BOT_TOKEN}#";
 
         // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
         // var token = Environment.GetEnvironmentVariable("NameOfYourEnvironmentVariable");
