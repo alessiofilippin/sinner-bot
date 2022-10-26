@@ -15,12 +15,15 @@ jobs:
     steps:
     - uses: actions/checkout@v3  
 
-    - name: Secret Parser
-      uses: jwsi/secret-parser@v1
+    - name: Replace tokens
+      # You may pin to the exact commit or the version.
+      # uses: cschleiden/replace-tokens@8e091844c27eb36853efbfade5ffca07260f0250
+      uses: cschleiden/replace-tokens@v1.2
       with:
-        filename: Program.cs
-        secret-name: DISCORD_BOT_TOKEN
-        secret-value: DISCORD_BOT_TOKEN
+        tokenPrefix: '#{'
+        tokenSuffix: '}#'
+      env:
+        CDN: ${{ secrets.DISCORD_BOT_TOKEN }}
     
     - name: Set up Docker Buildx
       id: buildx
