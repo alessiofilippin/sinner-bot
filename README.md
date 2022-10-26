@@ -2,7 +2,8 @@
 
 [![Docker Image CI](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml)
 
-**You can add the Bot to your discord server from here [Link to Bot](https://discordbotlist.com/bots/sinnerbot)**
+<a href="https://discordbotlist.com/bots/1033394018459074650"><img src="https://discordbotlist.com/api/v1/bots/1033394018459074650/widget"></a>
+
 
 ## Copyright
 
