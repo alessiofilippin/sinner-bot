@@ -37,6 +37,18 @@
 
 # Bot
 
+## KeyFeatures
+
+**Eng**
+- Create till 10 couple of decks. One couple contains one Major Arcana and one Minor Arcana decks.
+- Perform random extractions for Major Arcana and Minor Arcana. The Bot will also display key info about the arcana extracted, so you don't have always check the manual.
+- Shuffle rules are in line with Sine Requie's first and second/edition rules.
+
+**Ita**
+- Crea fino a 10 coppie di mazzi. Una coppia contiene un mazzo degli Arcani Maggiori e uno degli Arcani Minori.
+- Esegui estrazioni casuali per Arcani Maggiori e Arcani Minori. Il Bot mostrerà anche le informazioni chiave sugli arcani estratti, quindi non devi sempre controllare il manuale.
+- Le regole di mischiaggio sono in linea con le regole di prima e seconda/edizione di Sine Requie.
+
 ## Commands
 
 **Eng**: The Bot currently supports the following commands.
