@@ -69,6 +69,10 @@ public class Program
         decksReportCommand.WithName("stato-mazzi");
         decksReportCommand.WithDescription("Scrivi stato mazzi.");
 
+        var helpCommand = new SlashCommandBuilder();
+        helpCommand.WithName("help-me-sinnerbot");
+        helpCommand.WithDescription("help command.");
+
         try
         {
             // With global commands we don't need the guild.
@@ -76,6 +80,7 @@ public class Program
             await _client.CreateGlobalApplicationCommandAsync(minorArcanaCommand.Build());
             await _client.CreateGlobalApplicationCommandAsync(initDecksCommand.Build());
             await _client.CreateGlobalApplicationCommandAsync(decksReportCommand.Build());
+            await _client.CreateGlobalApplicationCommandAsync(helpCommand.Build());
         }
         catch (ApplicationCommandException exception)
         {
@@ -103,7 +108,34 @@ public class Program
             case "stato-mazzi":
                 await HandledecksReportCommand(command);
                 break;
+            case "help":
+                await HandleHelpCommand(command);
+                break;
         }
+    }
+
+    private async Task HandleHelpCommand(SocketSlashCommand command)
+    {
+        string helpMsg = "Questo e' un bot per Sine Requie" + "\n\n" +
+                         "Comandi disponibili:" + "\n\n" +
+                         "/crea-mazzi [NumeroMazzi]" + "\n\n" +
+                         "Eng: Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
+                         "It: Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
+                         "----" + "\n\n" +
+                         "/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]" + "\n\n" +                         
+                         "Eng: Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana." + "\n\n" +
+                         "It: Esegue l'estrazione di un arcano maggiore (tarocco) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
+                         "----" + "\n\n" +
+                         "/minore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]" + "\n\n" +
+                         "Eng: Perform the extraction of a minor arcana (poker card) from a specific deck for a maximum of 5 arcana." + "\n\n" +
+                         "It: Esegue l'estrazione di un arcano minore (carte da poker) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
+                         "----" + "\n\n" +
+                         "/stato-mazzi" + "\n\n" +
+                         "Eng: Create a report on the status of the available decks." + "\n\n" +
+                         "It: Genera un report sullo stato dei mazzi disponibili." + "\n\n" +
+                         "----" + "\n\n" +
+                         "Info e repository: https://github.com/alessiofilippin/sinner-bot" + "\n\n";
+        await command.RespondAsync(helpMsg);
     }
 
     private async Task HandledecksReportCommand(SocketSlashCommand command)

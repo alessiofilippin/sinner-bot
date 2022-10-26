@@ -11,6 +11,9 @@ namespace SinnerBot.Controllers
     {
         public static string InitDecks(int? _nDecks, ulong? _channelID)
         {
+            if (_nDecks > 10)
+                return "Massimo 10 coppie di mazzi.";
+
             InstanceDetails instance = new InstanceDetails(_channelID.ToString(), MajorArcanaController.InitDecks(_nDecks), MinorArcanaController.InitDecks(_nDecks));
             bool state = JsonSerializerController.WriteDataForServer(instance);
 
