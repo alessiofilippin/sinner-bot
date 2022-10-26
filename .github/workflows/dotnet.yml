@@ -22,6 +22,7 @@ jobs:
       with:
         tokenPrefix: '#{'
         tokenSuffix: '}#'
+        files: '["**/*.cs"]'
       env:
         DISCORD_BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
     
