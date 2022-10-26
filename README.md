@@ -76,9 +76,9 @@
 
 ## Hosting
 
-**Eng**: This is a self-hosted, self-financed project. As such the Bot is currently hosted on [serverstarter.host](https://serverstarter.host/clients/) a DiscordBot hosting service which claim to provide 99.9% SLA. However, I don't guarantee the full availability of the bot. I invite you to follow this guide and host the bot yourself if required. Using the code contained in this repo. [.NET GUIDE FOR DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html). A docker image of the bot is available [here](https://hub.docker.com/repository/docker/alessiofilippin/sinner-bot).
+**Eng**: This is a self-hosted, self-financed project. As such the Bot is currently hosted on [serverstarter.host](https://serverstarter.host/clients/) a DiscordBot hosting service which claim to provide 99.9% SLA. However, I don't guarantee the full availability of the bot. I invite you to follow this guide and host the bot yourself if required. Using the code contained in this repo. [.NET GUIDE FOR DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html).
 
-**Ita**: Questo è un progetto auto-gestito e autofinanziato. In quanto tale, il Bot è attualmente ospitato su [serverstarter.host](https://serverstarter.host/clients/) un servizio di hosting DiscordBot che dichiara di fornire uno SLA del 99,9%. Tuttavia, non garantisco la piena disponibilità del bot. Ti invito a seguire questa guida e ad ospitare tu stesso il bot se necessario. Utilizzando il codice contenuto in questo repository. [GUIDA .NET PER DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html). Una immagine per Docker e' disponibile [QUI](https://hub.docker.com/repository/docker/alessiofilippin/sinner-bot).
+**Ita**: Questo è un progetto auto-gestito e autofinanziato. In quanto tale, il Bot è attualmente ospitato su [serverstarter.host](https://serverstarter.host/clients/) un servizio di hosting DiscordBot che dichiara di fornire uno SLA del 99,9%. Tuttavia, non garantisco la piena disponibilità del bot. Ti invito a seguire questa guida e ad ospitare tu stesso il bot se necessario. Utilizzando il codice contenuto in questo repository. [GUIDA .NET PER DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html).
 
 ## State
 
