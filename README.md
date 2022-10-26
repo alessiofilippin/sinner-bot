@@ -24,11 +24,11 @@
 
 ## Disclaimer
 
-**Eng**: This Bot will make online experience easier and better. But details about the rules are not shared on purpose. If you would like to play the game, buy the rule book.
+**Eng**: This Bot will make online experience easier and better. But details about the rules are not shared on purpose. If you would like to play the game, buy the rule book. This Bot has been made for the first and second editions of the game but it can be used for the third edition as well.
 
 **This Repo contains the code for the Bot. Feel free to Fork the project and make your changes.**
 
-**Ita**: Questo Bot renderà l'esperienza online più facile e migliore. Ma i dettagli sulle regole non sono condivisi di proposito. Se vuoi giocare, acquista il regolamento.
+**Ita**: Questo Bot renderà l'esperienza online più facile e migliore. Ma i dettagli sulle regole non sono condivisi di proposito. Se vuoi giocare, acquista il regolamento. Il Bot e' stato creato per la prima e seconda edizione del gioco ma puo' essere utilizzato anche per la terza.
 
 
 **Questa Repo contiene il codice per il Bot. Sentiti libero di eseguire il Fork del progetto e apportare le tue modifiche.**
@@ -39,7 +39,20 @@
 
 **Eng**: The Bot currently supports the following commands.
 
+
+- **"/crea-mazzi"**:  Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana.
+- **"/stato-mazzi"**: Create a report on the status of the available decks.
+- **"/maggiore"**:  Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana.
+- **"/minore"**:  Perform the extraction of a minor arcana (poker card) from a specific deck for a maximum of 5 arcana.
+
+
 **Ita**: Il Bot attualmente supporta i seguenti comandi.
+
+
+- **"/crea-mazzi"**:  Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori.
+- **"/stato-mazzi"**: Genera un report sullo stato dei mazzi disponibili.
+- **"/maggiore"**:  Esegue l'estrazione di un arcano maggiore (tarocco) dal deck specificato fino ad un massimo di 5 carte.
+- **"/minore"**: Esegue l'estrazione di un arcano minore (carte da poker) dal deck specificato fino ad un massimo di 5 carte.
 
 ## Localization
 
@@ -49,6 +62,12 @@
 
 ## Hosting
 
-**Eng**: This is a self-hosted, self-financed project. As such the Bot is currently hosted on a Azure Cloud environemnts and using a free/shared tier. This means that the bot might not be always available during the day due to the Azure plan limitations. I invite you to follow this guide and host the bot yourself if required. Using the code contained in this repo. [.NET GUIDE FOR DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html).
+**Eng**: This is a self-hosted, self-financed project. As such the Bot is currently hosted on [serverstarter.host](https://serverstarter.host/clients/) a DiscordBot hosting service which claim to provide 99.9% SLA. However, I don't guarantee the full availability of the bot. I invite you to follow this guide and host the bot yourself if required. Using the code contained in this repo. [.NET GUIDE FOR DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html). A docker image of the bot is available [here](https://hub.docker.com/repository/docker/alessiofilippin/sinner-bot).
 
-**Ita**: Questo è un progetto autogestito e autofinanziato. Pertanto, il bot è attualmente ospitato in ambienti cloud di Azure e usa un piano gratuito/condiviso. Ciò significa che il bot potrebbe non essere sempre disponibile durante il giorno a causa delle limitazioni del piano di Azure. Ti invito a seguire questa guida e ad ospitare tu stesso il bot se necessario. Utilizzando il codice di questa repo. [GUIDA .NET PER DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html).
+**Ita**: Questo è un progetto auto-gestito e autofinanziato. In quanto tale, il Bot è attualmente ospitato su [serverstarter.host](https://serverstarter.host/clients/) un servizio di hosting DiscordBot che dichiara di fornire uno SLA del 99,9%. Tuttavia, non garantisco la piena disponibilità del bot. Ti invito a seguire questa guida e ad ospitare tu stesso il bot se necessario. Utilizzando il codice contenuto in questo repository. [GUIDA .NET PER DISCORD](https://discordnet.dev/guides/getting_started/first-bot.html). Una immagine per Docker e' disponibile [QUI](https://hub.docker.com/repository/docker/alessiofilippin/sinner-bot).
+
+## State
+
+**Eng**: The state of each deck per server is saved into a JSON file which the bot will read and write depending on the command type. This was the cheapest solution for hosting and the JSON file will be destroyed after 2 hours of inactivity to preserve the memory on the host.
+
+**Ita**: Lo stato di ogni deck per server viene salvato in un file JSON che il bot leggerà e scriverà a seconda del tipo di comando. Questa era la soluzione più economica per l'hosting e il file JSON verrà distrutto dopo 2 ore di inattività per preservare la memoria sull'host.
