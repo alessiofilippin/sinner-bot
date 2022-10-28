@@ -37,7 +37,6 @@ jobs:
         password: ${{ secrets.SERVERSTARTER_FTP_PASSWORD }}
         local_dir: ./bin/Release/net6.0
         delete: true
-        ftp_ssl_allow: true
         
     - name: Set up Docker Buildx
       id: buildx
