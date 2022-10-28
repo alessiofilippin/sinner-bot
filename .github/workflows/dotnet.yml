@@ -29,15 +29,15 @@ jobs:
     - name: .Net Build
       uses: EasyDesk/action-dotnet-build@v1.0.0
     
-		- name: SFTP Upload Code to hosting
-		  uses: wangyucode/sftp-upload-action@v1.4.8
-		  with:			 
-			host: ${{ secrets.SERVERSTARTER_FTP_HOST }}
-			port: 2022
-			username: ${{ secrets.SERVERSTARTER_FTP_USERNAME }}
-			password: ${{ secrets.SERVERSTARTER_FTP_PASSWORD }}
-			localDir: ./bin/Release/net6.0
-			forceUpload: true
+    - name: SFTP Upload Code to hosting
+      uses: wangyucode/sftp-upload-action@v1.4.8
+      with:			 
+       host: ${{ secrets.SERVERSTARTER_FTP_HOST }}
+       port: 2022
+       username: ${{ secrets.SERVERSTARTER_FTP_USERNAME }}
+       password: ${{ secrets.SERVERSTARTER_FTP_PASSWORD }}
+       localDir: ./bin/Release/net6.0
+       forceUpload: true
         
     - name: Set up Docker Buildx
       id: buildx
