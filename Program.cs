@@ -3,6 +3,7 @@ using Discord.Net;
 using Discord.WebSocket;
 using Newtonsoft.Json;
 using SinnerBot.Controllers;
+using SinnerBot.Embed;
 using System.IO;
 using System.Numerics;
 
@@ -116,26 +117,23 @@ public class Program
 
     private async Task HandleHelpCommand(SocketSlashCommand command)
     {
-        string helpMsg = "Questo e' un bot per Sine Requie" + "\n\n" +
-                         "Comandi disponibili:" + "\n\n" +
-                         "/crea-mazzi [NumeroMazzi]" + "\n\n" +
+        string helpMsg = "##Comandi disponibili:" + "\n\n" +
+                         "**/crea-mazzi [NumeroMazzi]>**" + "\n\n" +
                          "Eng: Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
                          "It: Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
                          "----" + "\n\n" +
-                         "/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]" + "\n\n" +                         
+                         "**/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
                          "Eng: Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana." + "\n\n" +
                          "It: Esegue l'estrazione di un arcano maggiore (tarocco) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
                          "----" + "\n\n" +
-                         "/minore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]" + "\n\n" +
+                         "**/minore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
                          "Eng: Perform the extraction of a minor arcana (poker card) from a specific deck for a maximum of 5 arcana." + "\n\n" +
                          "It: Esegue l'estrazione di un arcano minore (carte da poker) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
                          "----" + "\n\n" +
-                         "/stato-mazzi" + "\n\n" +
+                         "**/stato-mazzi**" + "\n\n" +
                          "Eng: Create a report on the status of the available decks." + "\n\n" +
-                         "It: Genera un report sullo stato dei mazzi disponibili." + "\n\n" +
-                         "----" + "\n\n" +
-                         "Info e repository: https://github.com/alessiofilippin/sinner-bot" + "\n\n";
-        await command.RespondAsync(helpMsg);
+                         "It: Genera un report sullo stato dei mazzi disponibili." + "\n\n";
+        await command.RespondAsync(embed: GenerateEmbed.InfoEmbed("Questo e' un bot per Sine Requie", helpMsg));
     }
 
     private async Task HandledecksReportCommand(SocketSlashCommand command)
@@ -149,7 +147,8 @@ public class Program
 
         if (command.Data.Options.Count > 0)
         {
-            n = (Int64)command.Data.Options.ToArray()[0].Value;
+            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero", null) != null)
+                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
         }
 
         await command.RespondAsync(DeckController.InitDecks((int?)n,command.ChannelId));
@@ -159,18 +158,17 @@ public class Program
     {
         Int64 n = 1;
         Int64 deck = 0;
-        
+
         if (command.Data.Options.Count > 0)
         {
-            n = (Int64)command.Data.Options.ToArray()[0].Value;
+            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero", null) != null)
+                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
+
+            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "mazzo", null) != null)
+                deck = (Int64)command.Data.Options.ToArray().First(x => x.Name == "mazzo").Value;
         }
 
-        if (command.Data.Options.Count > 1)
-        {
-            deck = (Int64)command.Data.Options.ToArray()[1].Value;
-        }
-
-        await command.RespondAsync(DeckController.ExtractMajor((int?)n, (int?)deck, command.ChannelId));
+        await command.RespondAsync(embeds: DeckController.ExtractMajor((int?)n, (int?)deck, command.ChannelId));
     }
 
     private async Task HandleMinoreCommand(SocketSlashCommand command)
@@ -180,14 +178,13 @@ public class Program
 
         if (command.Data.Options.Count > 0)
         {
-            n = (Int64)command.Data.Options.ToArray()[0].Value;
+            if(command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero",null) != null)
+                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
+
+            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "mazzo", null) != null)
+                deck = (Int64)command.Data.Options.ToArray().First(x => x.Name == "mazzo").Value;
         }
 
-        if (command.Data.Options.Count > 1)
-        {
-            deck = (Int64)command.Data.Options.ToArray()[1].Value;
-        }
-
-        await command.RespondAsync(DeckController.ExtractMinor((int?)n, (int?)deck, command.ChannelId));
+        await command.RespondAsync(embeds: DeckController.ExtractMinor((int?)n, (int?)deck, command.ChannelId));
     }
 }

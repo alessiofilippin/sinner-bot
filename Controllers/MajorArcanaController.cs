@@ -1,5 +1,6 @@
 ﻿using Discord;
 using Discord.Rest;
+using SinnerBot.Embed;
 using SinnerBot.Models;
 using System;
 using System.Collections.Generic;
@@ -68,57 +69,41 @@ namespace SinnerBot.Controllers
             return report;
         }
 
-        public static string RandomExtraction(int? _n, int? _deck, List<int>[] _availableArcana, string? _serverID)
+        public static Discord.Embed[] RandomExtraction(int _n, int _deck, List<int>[] _availableArcana, string? _serverID)
         {
             try
             {
-                if (_deck > _availableArcana.Length)
-                    return "Numero Mazzo errato.";
-
-                if (_n > 5)
-                    return "5 estrazioni massime.";
-
-                // Get user-input and normalized them
-                int deck = 0;
-                if (_deck != null && _deck > 0)
-                    deck = (int)_deck - 1;
-
-                int n = 1;
-                if (_n != null && _n > 0)
-                    n = (int)_n;
-
-                // Perform n exractions from specific deck number
-                string outputMsg = "";
-                for (int i = 0; i < n; i++)
+                Discord.Embed[] embedArray = new Discord.Embed[_n];
+                for (int i = 0; i < _n; i++)
                 {
                     Random rnd = new Random();
-                    int rndIndex = rnd.Next(0, _availableArcana[deck].Count - 1);
-                    Major arcanas = majorArcanaDeck.ElementAt(_availableArcana[deck][rndIndex] - 1).Value;
-
+                    int rndIndex = rnd.Next(0, _availableArcana[_deck].Count - 1);
+                    Major arcanas = majorArcanaDeck.ElementAt(_availableArcana[_deck][rndIndex] - 1).Value;
+                    string footer = "";
 
                     // Il Matto was extracted - Shuffle
-                    if (_availableArcana[deck][rndIndex] == 22)
+                    if (_availableArcana[_deck][rndIndex] == 22)
                     {
-                        _availableArcana[deck] = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 };
-                        outputMsg = outputMsg + "\n\n" + Emoji.Parse(":point_down:") + " -- Mazzo Mischiato --";
+                        _availableArcana[_deck] = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22 };
+                        footer = footer + " -- Mazzo Mischiato -- ";
                     }
                     else
                     {
                         // the extracted card gets removed from the deck. This because after the extraction - cards are put at the end of the pile and a Shuffle always happens before the end of the pile.
-                        _availableArcana[deck].RemoveAt(rndIndex);
+                        _availableArcana[_deck].RemoveAt(rndIndex);
                     }
 
                     // Append message to output
-                    outputMsg += "\n\n" + Emoji.Parse(":bangbang:") + " Mazzo: " + (deck + 1) + " Estrazione: " + (i + 1) + "\n\n" + arcanas.Name + "\n\n" + arcanas.Description + "\n\n" + arcanas.Effects;
-
+                    footer = footer + "Mazzo: " + (_deck + 1) + " Estrazione: " + (i + 1);
+                    embedArray[i] = GenerateEmbed.ArcanaEmbed(arcanas.Name, arcanas.Description, arcanas.Effects, footer);
                 }
 
                 JsonSerializerController.WriteDataForServer(new InstanceDetails(_serverID,_availableArcana,null));
-                return outputMsg;
+                return embedArray;
             }
             catch (Exception exc)
             {
-                return exc.Message;
+                return null;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using SinnerBot.Models;
+﻿using SinnerBot.Embed;
+using SinnerBot.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,28 +36,80 @@ namespace SinnerBot.Controllers
             return MajorArcanaController.DeckReport(instance.availableMajorArcana) + MinorArcanaController.DeckReport(instance.availableMinorArcana);
         }
 
-        public static string ExtractMajor(int? _n, int? _deck, ulong? _channelID)
+        public static Discord.Embed[] ExtractMajor(int? _n, int? _deck, ulong? _channelID)
         {
+            Discord.Embed[] embedArrayErrors = new Discord.Embed[1];
             InstanceDetails instance = JsonSerializerController.ReadDataForServer(_channelID.ToString());
 
             if (instance == null || instance.availableMajorArcana == null)
             {
-                return "Nessun Mazzo Creato. Lanciare comando /crea-mazzi";
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Nessun Mazzo Creato");
+                return embedArrayErrors;
             }
 
-            return MajorArcanaController.RandomExtraction(_n, _deck, instance.availableMajorArcana, _channelID.ToString());
+            
+            if (_deck > instance.availableMajorArcana.Length)
+            {
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Numero mazzi disponibile: " + instance.availableMajorArcana.Length);
+                return embedArrayErrors;
+            }
+
+
+            if (_n > 5)
+            {
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Massimo 5 estrazioni.");
+                return embedArrayErrors;
+            }
+
+            // Get user-input and normalized them
+            int deck = 0;
+            if (_deck != null && _deck > 0)
+                deck = (int)_deck - 1;
+
+            int n = 1;
+            if (_n != null && _n > 0)
+
+                n = (int)_n;
+
+            return MajorArcanaController.RandomExtraction(n, deck, instance.availableMajorArcana, _channelID.ToString());
         }
 
-        public static string ExtractMinor(int? _n, int? _deck, ulong? _channelID)
+        public static Discord.Embed[] ExtractMinor(int? _n, int? _deck, ulong? _channelID)
         {
+            Discord.Embed[] embedArrayErrors = new Discord.Embed[1];
             InstanceDetails instance = JsonSerializerController.ReadDataForServer(_channelID.ToString());
 
             if (instance == null || instance.availableMinorArcana == null)
             {
-                return "Nessun Mazzo Creato. Lanciare comando /crea-mazzi";
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Nessun Mazzo Creato");
+                return embedArrayErrors;
             }
 
-            return MinorArcanaController.RandomExtraction(_n, _deck, instance.availableMinorArcana, _channelID.ToString());
+
+            if (_deck > instance.availableMinorArcana.Length)
+            {
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Numero mazzi disponibile: " + instance.availableMajorArcana.Length);
+                return embedArrayErrors;
+            }
+
+
+            if (_n > 5)
+            {
+                embedArrayErrors[0] = GenerateEmbed.ErrorEmbed("Massimo 5 estrazioni.");
+                return embedArrayErrors;
+            }
+
+            // Get user-input and normalized them
+            int deck = 0;
+            if (_deck != null && _deck > 0)
+                deck = (int)_deck - 1;
+
+            int n = 1;
+            if (_n != null && _n > 0)
+                n = (int)_n;
+
+
+            return MinorArcanaController.RandomExtraction(n, deck, instance.availableMinorArcana, _channelID.ToString());
         }
     }
 }

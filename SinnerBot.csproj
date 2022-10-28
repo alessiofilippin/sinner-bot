@@ -13,4 +13,9 @@
     <PackageReference Include="Discord.Net.WebSocket" Version="3.8.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Imgs\Major\" />
+    <Folder Include="Imgs\Minor\" />
+  </ItemGroup>
+
 </Project>
