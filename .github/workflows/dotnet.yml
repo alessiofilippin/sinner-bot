@@ -38,6 +38,7 @@ jobs:
        password: ${{ secrets.SERVERSTARTER_FTP_PASSWORD }}
        localDir: ./bin/Release/net6.0
        forceUpload: true
+       dryRun: false
         
     - name: Set up Docker Buildx
       id: buildx
