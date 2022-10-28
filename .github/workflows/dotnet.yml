@@ -29,6 +29,15 @@ jobs:
     - name: .Net Build
       uses: EasyDesk/action-dotnet-build@v1.0.0
     
+    - name: ftp-action-copy-to-serverstarter.host
+      uses: sebastianpopp/ftp-action@v2.0.0
+      with:
+        host: sftp://us1.bots.serverstarter.host:2022
+        user: ${{ secrets.SERVERSTARTER_FTP_USERNAME }}
+        password: ${{ secrets.SERVERSTARTER_FTP_PASSWORD }}
+        forceSsl: true
+        localDir: ./bin/Release/net6.0
+        
     - name: Set up Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v2
