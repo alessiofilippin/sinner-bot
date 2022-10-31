@@ -21,7 +21,7 @@ public class Program
 
         //  You can assign your bot token to a string, and pass that in to connect.
         //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.        
-        var token = "#{DISCORD_BOT_TOKEN}#";
+        var token = "#{DISCORD_BOT_TOKEN}#";      
 
         // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
         // var token = Environment.GetEnvironmentVariable("NameOfYourEnvironmentVariable");
@@ -117,8 +117,7 @@ public class Program
 
     private async Task HandleHelpCommand(SocketSlashCommand command)
     {
-        string helpMsg = "##Comandi disponibili:" + "\n\n" +
-                         "**/crea-mazzi [NumeroMazzi]>**" + "\n\n" +
+        string helpMsg = "**/crea-mazzi [NumeroMazzi]>**" + "\n\n" +
                          "Eng: Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
                          "It: Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
                          "----" + "\n\n" +
