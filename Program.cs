@@ -20,7 +20,7 @@ public class Program
         _client.Log += Log;
 
         //  You can assign your bot token to a string, and pass that in to connect.
-        //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.        
+        //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository. 
         var token = "#{DISCORD_BOT_TOKEN}#";      
 
         // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
@@ -45,6 +45,7 @@ public class Program
 
     public async Task Client_Ready()
     {
+        await Log(new LogMessage(LogSeverity.Debug, "Custom", "Currently in " + _client.Guilds.Count + " servers.", null));
         await Log(new LogMessage(LogSeverity.Debug, "Custom", "Start Init for Slash Commands", null));
         string path = AppDomain.CurrentDomain.BaseDirectory + @"/" + "instancesData.json";
         await Log(new LogMessage(LogSeverity.Debug, "Custom", path, null));
@@ -117,21 +118,21 @@ public class Program
 
     private async Task HandleHelpCommand(SocketSlashCommand command)
     {
-        string helpMsg = "**/crea-mazzi [NumeroMazzi]>**" + "\n\n" +
-                         "Eng: Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
-                         "It: Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
+        string helpMsg = "☛ **/crea-mazzi [NumeroMazzi]**" + "\n\n" +
+                         "🇬🇧 Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
+                         "🇮🇹 Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
                          "----" + "\n\n" +
-                         "**/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
-                         "Eng: Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana." + "\n\n" +
-                         "It: Esegue l'estrazione di un arcano maggiore (tarocco) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
+                         "☛ **/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
+                         "🇬🇧 Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana." + "\n\n" +
+                         "🇮🇹 Esegue l'estrazione di un arcano maggiore (tarocco) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
                          "----" + "\n\n" +
-                         "**/minore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
-                         "Eng: Perform the extraction of a minor arcana (poker card) from a specific deck for a maximum of 5 arcana." + "\n\n" +
-                         "It: Esegue l'estrazione di un arcano minore (carte da poker) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
+                         "☛ **/minore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
+                         "🇬🇧 Perform the extraction of a minor arcana (poker card) from a specific deck for a maximum of 5 arcana." + "\n\n" +
+                         "🇮🇹 Esegue l'estrazione di un arcano minore (carte da poker) dal deck specificato fino ad un massimo di 5 carte." + "\n\n" +
                          "----" + "\n\n" +
-                         "**/stato-mazzi**" + "\n\n" +
-                         "Eng: Create a report on the status of the available decks." + "\n\n" +
-                         "It: Genera un report sullo stato dei mazzi disponibili." + "\n\n";
+                         "☛ **/stato-mazzi**" + "\n\n" +
+                         "🇬🇧 Create a report on the status of the available decks." + "\n\n" +
+                         "🇮🇹 Genera un report sullo stato dei mazzi disponibili." + "\n\n";
         await command.RespondAsync(embed: GenerateEmbed.InfoEmbed("Questo e' un bot per Sine Requie", helpMsg));
     }
 

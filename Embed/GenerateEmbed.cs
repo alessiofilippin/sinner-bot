@@ -16,13 +16,19 @@ namespace SinnerBot.Embed
         {
             var embed = new EmbedBuilder();
 
-            embed.AddField("Effetto", _effects)
-                .WithColor(Color.Gold)
+            embed.WithColor(Color.Gold)
                 .WithTitle(_title)
-                .WithDescription(_description)
                 .WithFooter(_footer)
-                .WithImageUrl(_imageUrl)
                 .WithCurrentTimestamp();
+
+            if (_effects != "")
+                embed.AddField("Effetto", _effects);
+
+            if (_description != "")
+                embed.WithDescription(_description);
+
+            if (_imageUrl != "")
+                embed.WithImageUrl(_imageUrl);
 
             return embed.Build();
         }
