@@ -33,6 +33,18 @@ namespace SinnerBot.Embed
             return embed.Build();
         }
 
+        public static Discord.Embed MiscellaneousEmbed(string _title, string _description)
+        {
+            var embed = new EmbedBuilder();
+
+            embed.WithColor(Color.Green)
+                .WithTitle(_title)
+                .WithDescription(_description)
+                .WithCurrentTimestamp();
+
+            return embed.Build();
+        }
+
         public static Discord.Embed ErrorEmbed(string _errorDescription)
         {
             var embed = new EmbedBuilder();

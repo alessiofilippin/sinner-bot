@@ -19,14 +19,7 @@ public class Program
 
         _client.Log += Log;
 
-        //  You can assign your bot token to a string, and pass that in to connect.
-        //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository. 
-        var token = "#{DISCORD_BOT_TOKEN}#";      
-
-        // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
-        // var token = Environment.GetEnvironmentVariable("NameOfYourEnvironmentVariable");
-        // var token = File.ReadAllText("token.txt");
-        // var token = JsonConvert.DeserializeObject<AConfigurationClass>(File.ReadAllText("config.json")).Token;
+        var token = "#{DISCORD_BOT_TOKEN}#";
 
         await _client.LoginAsync(TokenType.Bot, token);
         await _client.StartAsync();
@@ -34,7 +27,6 @@ public class Program
         _client.Ready += Client_Ready;
         _client.SlashCommandExecuted += SlashCommandHandler;
 
-        // Block this task until the program is closed.
         await Task.Delay(-1);
     }
     private Task Log(LogMessage msg)
@@ -53,23 +45,27 @@ public class Program
         var majorArcanaCommand = new SlashCommandBuilder();
         majorArcanaCommand.WithName("maggiore");
         majorArcanaCommand.WithDescription("Estai un Arcano Maggiore. Tarocco.");
-        majorArcanaCommand.AddOption("numero", ApplicationCommandOptionType.Integer, "Numero di arcani da estrarre.", isRequired: false);
+        majorArcanaCommand.AddOption("arcani", ApplicationCommandOptionType.Integer, "Numero di arcani da estrarre.", isRequired: false);
         majorArcanaCommand.AddOption("mazzo", ApplicationCommandOptionType.Integer, "Numero del mazzo da cui estrarre l'arcano.", isRequired: false);
 
         var minorArcanaCommand = new SlashCommandBuilder();
         minorArcanaCommand.WithName("minore");
         minorArcanaCommand.WithDescription("Estai un Arcano Minore. Carta da Gioco.");
-        minorArcanaCommand.AddOption("numero", ApplicationCommandOptionType.Integer, "Numero di arcani da estrarre.", isRequired: false);
+        minorArcanaCommand.AddOption("arcani", ApplicationCommandOptionType.Integer, "Numero di arcani da estrarre.", isRequired: false);
         minorArcanaCommand.AddOption("mazzo", ApplicationCommandOptionType.Integer, "Numero del mazzo da cui estrarre l'arcano.", isRequired: false);
 
         var initDecksCommand = new SlashCommandBuilder();
         initDecksCommand.WithName("crea-mazzi");
-        initDecksCommand.WithDescription("Crea una coppia di mazzi per Giocatore. Minore e Maggiore.");
+        initDecksCommand.WithDescription("Crea un numero di coppie di mazzi, Minore e Maggiore. Solitamente uno per Giocatore.");
         initDecksCommand.AddOption("numero", ApplicationCommandOptionType.Integer, "Numero di mazzi da inizializzare. Solitamente uno per giocatore.", isRequired: false);
 
         var decksReportCommand = new SlashCommandBuilder();
         decksReportCommand.WithName("stato-mazzi");
         decksReportCommand.WithDescription("Scrivi stato mazzi.");
+
+        var coinCommand = new SlashCommandBuilder();
+        coinCommand.WithName("lancia-moneta");
+        coinCommand.WithDescription("Lancia una moneta. Puo' essere utile al GM per risolvere alcune situazioni particolari.");
 
         var helpCommand = new SlashCommandBuilder();
         helpCommand.WithName("help-me-sinnerbot");
@@ -82,6 +78,7 @@ public class Program
             await _client.CreateGlobalApplicationCommandAsync(minorArcanaCommand.Build());
             await _client.CreateGlobalApplicationCommandAsync(initDecksCommand.Build());
             await _client.CreateGlobalApplicationCommandAsync(decksReportCommand.Build());
+            await _client.CreateGlobalApplicationCommandAsync(coinCommand.Build());
             await _client.CreateGlobalApplicationCommandAsync(helpCommand.Build());
         }
         catch (ApplicationCommandException exception)
@@ -110,6 +107,9 @@ public class Program
             case "stato-mazzi":
                 await HandledecksReportCommand(command);
                 break;
+            case "lancia-moneta":
+                await HandleCoinCommand(command);
+                break;
             case "help-me-sinnerbot":
                 await HandleHelpCommand(command);
                 break;
@@ -120,7 +120,7 @@ public class Program
     {
         string helpMsg = "☛ **/crea-mazzi [NumeroMazzi]**" + "\n\n" +
                          "🇬🇧 Generates a specific number of decks (usually one per Player + one for the GM). This creates both decks for major and minor arcana." + "\n\n" +
-                         "🇮🇹 Genera uno specifico numbero di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
+                         "🇮🇹 Genera uno specifico numero di coppie di mazzi (solitamente uno per giocatore + uno per il GM). Questo commando crea entrambi i mazzi per gli arcani maggiori e minori." + "\n\n" +
                          "----" + "\n\n" +
                          "☛ **/maggiore [NumeroEstrazioni] [NumeroMazzoPerEstrazione]**" + "\n\n" +
                          "🇬🇧 Perform the extraction of a major arcana (tarot) from a specific deck for a maximum of 5 arcana." + "\n\n" +
@@ -132,13 +132,25 @@ public class Program
                          "----" + "\n\n" +
                          "☛ **/stato-mazzi**" + "\n\n" +
                          "🇬🇧 Create a report on the status of the available decks." + "\n\n" +
-                         "🇮🇹 Genera un report sullo stato dei mazzi disponibili." + "\n\n";
+                         "🇮🇹 Genera un report sullo stato dei mazzi disponibili." + "\n\n" +
+                         "----" + "\n\n" +
+                         "☛ **COME USARE IL BOT? / HOW TO USE THE BOT?**" + "\n\n" +
+                         "🇬🇧 Start with command the command **/crea-mazzi** and assign a deck number for Player and GM. Then perform extractions using **/maggiore** or **/minore**" + "\n\n" +
+                         "🇮🇹 Inizia con il comando **/crea-mazzi** ed assegna un numero mazzo ad ogni giocatore e GM. Successivamente esegui le estrazioni usando **/maggiore** o **/minore**" + "\n\n";
         await command.RespondAsync(embed: GenerateEmbed.InfoEmbed("Questo e' un bot per Sine Requie", helpMsg));
     }
 
     private async Task HandledecksReportCommand(SocketSlashCommand command)
     {
-        await command.RespondAsync(DeckController.DeckReport(command.ChannelId));
+        await command.RespondAsync(embed: GenerateEmbed.InfoEmbed("Questo e' lo stato dei mazzi:", DeckController.DeckReport(command.ChannelId)));
+    }
+
+    private async Task HandleCoinCommand(SocketSlashCommand command)
+    {
+        string[] coin = { "Testa 🤯", "Croce ✝️" };
+        Random random = new Random();
+        string result = coin[random.Next(0,coin.Length)];
+        await command.RespondAsync(embed: GenerateEmbed.MiscellaneousEmbed("Moneta:", result));
     }
 
     private async Task HandleInitDecksCommand(SocketSlashCommand command)
@@ -161,8 +173,8 @@ public class Program
 
         if (command.Data.Options.Count > 0)
         {
-            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero", null) != null)
-                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
+            if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "arcani", null) != null)
+                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "arcani").Value;
 
             if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "mazzo", null) != null)
                 deck = (Int64)command.Data.Options.ToArray().First(x => x.Name == "mazzo").Value;
@@ -178,8 +190,8 @@ public class Program
 
         if (command.Data.Options.Count > 0)
         {
-            if(command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero",null) != null)
-                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
+            if(command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "arcani", null) != null)
+                n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "arcani").Value;
 
             if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "mazzo", null) != null)
                 deck = (Int64)command.Data.Options.ToArray().First(x => x.Name == "mazzo").Value;

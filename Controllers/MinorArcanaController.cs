@@ -28,7 +28,7 @@ namespace SinnerBot.Controllers
             {11, new Minor("Fante - Cuori ♡ - Rosso","Insuccesso Critico. Se combattimento: perdita azione corrente e -3 prossimo attacco.") },
             {12, new Minor("Cavallo - Cuori ♡ - Rosso","Immobilita', Esitazione, indecisione. Perdita turno o azione.") },
             {13, new Minor("Regina - Cuori ♡ - Rosso","Insuccesso Ma..possibile effetto secondario positivo.") },
-            {14, new Minor("Re - Cuori ♡ - Rosso","Successo Pero..possibile effetto secondario negativo.") },
+            {14, new Minor("Re - Cuori ♡ - Rosso","Successo pero'..possibile effetto secondario negativo.") },
             {15, new Minor("Asso - Picche ♤ - Nero","Successo Critico.") },
             {16, new Minor("Due - Picche ♤ - Nero","") },
             {17, new Minor("Tre - Picche ♤ - Nero","") },
@@ -42,7 +42,7 @@ namespace SinnerBot.Controllers
             {25, new Minor("Fante - Picche ♤ - Nero","Insuccesso Critico. Se combattimento: il colpo colpisce un compagno o te stesso, calcolo danno normale.") },
             {26, new Minor("Cavallo - Picche ♤ - Nero","Immobilita', Esitazione, indecisione. Perdita turno o azione.") },
             {27, new Minor("Regina - Picche ♤ - Nero","Insuccesso Ma..possibile effetto secondario positivo. Se Combattimento: Inceppamento Lieve,Medio,Alto,Estremo. Blocco prima di sparo.") },
-            {28, new Minor("Re - Picche ♤ - Nero","Successo Pero..possibile effetto secondario negativo. Se Combattimento: Inceppamento Medio,Alto,Estremo. Blocco dopo sparo.") },
+            {28, new Minor("Re - Picche ♤ - Nero","Successo pero'..possibile effetto secondario negativo. Se Combattimento: Inceppamento Medio,Alto,Estremo. Blocco dopo sparo.") },
             {29, new Minor("Asso - Quadri ♢ - Rosso","Successo Critico.") },
             {30, new Minor("Due - Quadri ♢ - Rosso","") },
             {31, new Minor("Tre - Quadri ♢ - Rosso","") },
@@ -56,7 +56,7 @@ namespace SinnerBot.Controllers
             {39, new Minor("Fante - Quadri ♢ - Rosso","Insuccesso Critico. Se combattimento: Qualcosa e' andato storto, il colpo non e' stato esploso. Perdita prossima azione turno oppure tutte azioni turno successivo.") },
             {40, new Minor("Cavallo - Quadri ♢ - Rosso","Immobilita', Esitazione, indecisione. Perdita turno o azione.") },
             {41, new Minor("Regina - Quadri ♢ - Rosso","Insuccesso Ma..possibile effetto secondario positivo.") },
-            {42, new Minor("Re - Quadri ♢ - Rosso","Successo Pero..possibile effetto secondario negativo.") },
+            {42, new Minor("Re - Quadri ♢ - Rosso","Successo pero'..possibile effetto secondario negativo.") },
             {43, new Minor("Asso - Fiori ♧ - Nero","Successo Critico.") },
             {44, new Minor("Due - Fiori ♧ - Nero","") },
             {45, new Minor("Tre - Fiori ♧ - Nero","") },
@@ -70,7 +70,7 @@ namespace SinnerBot.Controllers
             {53, new Minor("Fante - Fiori ♧ - Nero","Insuccesso Critico. Se combattimento: Rottura arma da fuoco oppure -1 classe danno per arma mischia.") },
             {54, new Minor("Cavallo - Fiori ♧ - Nero","Immobilita', Esitazione, indecisione. Perdita turno o azione.") },
             {55, new Minor("Regina - Fiori ♧ - Nero","Insuccesso Ma..possibile effetto secondario positivo. Se Combattimento: Inceppamento Alto,Estremo. Blocco prima di sparo.") },
-            {56, new Minor("Re - Fiori ♧ - Nero","Successo Pero..possibile effetto secondario negativo. Se Combattimento: Inceppamento Estremo. Blocco dopo sparo.") },
+            {56, new Minor("Re - Fiori ♧ - Nero","Successo pero'..possibile effetto secondario negativo. Se Combattimento: Inceppamento Estremo. Blocco dopo sparo.") },
         };
 
         public static List<int>[] InitDecks(int? _nDecks)
