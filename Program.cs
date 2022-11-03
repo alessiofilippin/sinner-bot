@@ -134,6 +134,10 @@ public class Program
                          "🇬🇧 Create a report on the status of the available decks." + "\n\n" +
                          "🇮🇹 Genera un report sullo stato dei mazzi disponibili." + "\n\n" +
                          "----" + "\n\n" +
+                         "☛ **/lancia-moneta**" + "\n\n" +
+                         "🇬🇧 Throw a coin, it might be useful for the GM to solve particular situations." + "\n\n" +
+                         "🇮🇹 Lancia una moneta, puo' essere utile al GM per risolvere situazioni specifiche." + "\n\n" +
+                         "----" + "\n\n" +
                          "☛ **COME USARE IL BOT? / HOW TO USE THE BOT?**" + "\n\n" +
                          "🇬🇧 Start with command the command **/crea-mazzi** and assign a deck number for Player and GM. Then perform extractions using **/maggiore** or **/minore**" + "\n\n" +
                          "🇮🇹 Inizia con il comando **/crea-mazzi** ed assegna un numero mazzo ad ogni giocatore e GM. Successivamente esegui le estrazioni usando **/maggiore** o **/minore**" + "\n\n";
@@ -162,7 +166,7 @@ public class Program
             if (command.Data.Options.ToArray().FirstOrDefault(x => x.Name == "numero", null) != null)
                 n = (Int64)command.Data.Options.ToArray().First(x => x.Name == "numero").Value;
         }
-
+        
         await command.RespondAsync(DeckController.InitDecks((int?)n,command.ChannelId));
     }
 
