@@ -19,7 +19,8 @@ namespace SinnerBot.Embed
             embed.WithColor(Color.Gold)
                 .WithTitle(_title)
                 .WithFooter(_footer)
-                .WithCurrentTimestamp();
+                .WithCurrentTimestamp()
+                .WithUrl("https://www.buymeacoffee.com/alesinnerbot");
 
             if (_effects != "")
                 embed.AddField("Effetto", _effects);
@@ -53,6 +54,7 @@ namespace SinnerBot.Embed
                 .WithTitle("Errore")
                 .WithDescription(_errorDescription)
                 .WithCurrentTimestamp();
+                
 
             return embed.Build();
         }

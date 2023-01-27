@@ -8,14 +8,10 @@
           "Discord.Net.Core": "3.8.1"
         },
         "compile": {
-          "lib/net6.0/Discord.Net.Commands.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Commands.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Discord.Net.Commands.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Commands.dll": {}
         }
       },
       "Discord.Net.Core/3.8.1": {
@@ -27,14 +23,10 @@
           "System.ValueTuple": "4.5.0"
         },
         "compile": {
-          "lib/net6.0/Discord.Net.Core.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Core.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Discord.Net.Core.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Core.dll": {}
         }
       },
       "Discord.Net.Rest/3.8.1": {
@@ -43,14 +35,10 @@
           "Discord.Net.Core": "3.8.1"
         },
         "compile": {
-          "lib/net6.0/Discord.Net.Rest.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Rest.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Discord.Net.Rest.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.Rest.dll": {}
         }
       },
       "Discord.Net.WebSocket/3.8.1": {
@@ -60,40 +48,28 @@
           "Discord.Net.Rest": "3.8.1"
         },
         "compile": {
-          "lib/net6.0/Discord.Net.WebSocket.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.WebSocket.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Discord.Net.WebSocket.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Discord.Net.WebSocket.dll": {}
         }
       },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       },
       "System.Collections.Immutable/5.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Collections.Immutable.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
         }
       },
       "System.Interactive.Async/5.0.0": {
@@ -102,27 +78,19 @@
           "System.Linq.Async": "5.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/System.Interactive.Async.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/System.Interactive.Async.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Interactive.Async.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/System.Interactive.Async.dll": {}
         }
       },
       "System.Linq.Async/5.0.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.1/System.Linq.Async.dll": {
-            "related": ".xml"
-          }
+          "ref/netcoreapp3.1/System.Linq.Async.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/System.Linq.Async.dll": {
-            "related": ".xml"
-          }
+          "lib/netcoreapp3.1/System.Linq.Async.dll": {}
         }
       },
       "System.ValueTuple/4.5.0": {
@@ -434,8 +402,7 @@
           "net47",
           "net471",
           "net472",
-          "net48",
-          "net481"
+          "net48"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -444,7 +411,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
       }
     }
   }
