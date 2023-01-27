@@ -19,8 +19,7 @@ namespace SinnerBot.Embed
             embed.WithColor(Color.Gold)
                 .WithTitle(_title)
                 .WithFooter(_footer)
-                .WithCurrentTimestamp()
-                .WithUrl("https://www.buymeacoffee.com/alesinnerbot");
+                .WithCurrentTimestamp();
 
             if (_effects != "")
                 embed.AddField("Effetto", _effects);
