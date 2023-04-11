@@ -85,7 +85,7 @@
 
 ## State
 
-**Eng**: The state of each deck per server is saved into a JSON file which the bot will read and write depending on the command type. This was the cheapest solution for hosting and the JSON file will be destroyed after 2 hours of inactivity to preserve the memory on the host.
+**Eng**: The state of each deck per server is saved into a JSON file which the bot will read and write depending on the command type. This was the cheapest solution for hosting and the JSON file will be destroyed after 48 hours of inactivity to preserve the memory on the host.
 
-**Ita**: Lo stato di ogni deck per server viene salvato in un file JSON che il bot leggerà e scriverà a seconda del tipo di comando. Questa era la soluzione più economica per l'hosting e il file JSON verrà distrutto dopo 2 ore di inattività per preservare la memoria sull'host.
+**Ita**: Lo stato di ogni deck per server viene salvato in un file JSON che il bot leggerà e scriverà a seconda del tipo di comando. Questa era la soluzione più economica per l'hosting e il file JSON verrà distrutto dopo 48 ore di inattività per preservare la memoria sull'host.
 

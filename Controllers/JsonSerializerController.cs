@@ -95,7 +95,7 @@ namespace SinnerBot.Controllers
             {
                DateTime lastWrite = File.GetLastWriteTime(path);
 
-                if(lastWrite < DateTime.Now.AddHours(-2))
+                if(lastWrite < DateTime.Now.AddHours(-48))
                 {
                     File.Delete(path);
                 }
