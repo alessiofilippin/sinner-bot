@@ -1,4 +1,6 @@
 # SinnerBot
+## **Deprecated**, this bot is not anymore active hosted. Feel free to use the code and host it yourself. Code is not maintained anymore.
+## **Deprecato**, Questo bot non e' piu' attivo. E' possibile utilizzare il codice per runnarlo. Il codice non e' piu' mantenuto.
 
 [![Docker Image CI](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/alessiofilippin/sinner-bot/actions/workflows/dotnet.yml)
 
